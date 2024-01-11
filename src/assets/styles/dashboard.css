@@ -1,0 +1,124 @@
+/* dashboard => imported in file index.js*/
+.dashboard {
+    border-radius: 15px;
+    padding: 15px;
+    color: white;
+}
+
+/* tob bar */
+.top-bar {
+    box-shadow: 1px 1px 10px 1px black,
+        inset 0px 0px 10px 0px #86b7fe;
+    border-radius: 10px;
+}
+
+/* side bar */
+.side-bar {
+    margin: 5px 10px 5px 0px;
+    border-radius: 10px;
+    padding: 20px;
+    width: 25%;
+}
+
+.link-item {
+    color: white;
+    text-decoration: none;
+    /* border-bottom: 1px solid #cbc9c9; */
+    box-shadow: 0px 1px 0px 0px #86b7fe;
+    display: inline-block;
+    width: 100%;
+    padding: 0px 5px;
+    margin: 10px;
+}
+
+.link-item:hover {
+    box-shadow: 0px 1px 0px 0px white;
+    color: #86b7fe;
+}
+.link-item.active{
+    box-shadow: 0px 1px 0px 0px white;
+    color: #86b7fe;
+}
+
+.content {
+    display: flex;
+}
+
+.content .main {
+    width: 100%;
+    position: relative;
+}
+
+/* users' table */
+.users {
+    margin: 5px 0px;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+}
+
+.users table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+.users table th {
+    background-color: #47afb9;
+}
+
+.users table tr:nth-child(odd) {
+    background-color: rgba(134, 183, 254, 0.2);
+}
+
+.users table tr:nth-child(even) {
+    background-color: rgba(71, 175, 185, 0.2);
+}
+
+.users table th,
+.users table td {
+    border: 1px solid #a0c8cf;
+    padding: 0.50rem;
+    text-align: center;
+}
+
+.users table td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.edit {
+    margin: 0px 16px;
+    color: whitesmoke;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.edit:hover {
+    color: black;
+}
+
+.delete {
+    color: #dd4d4d;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.delete:hover {
+    color: black;
+}
+
+@media(max-width: 992px) {
+    .dashboard {
+        margin-top: 0 auto;
+    }
+
+    .side-bar {
+        width: 100%;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+}

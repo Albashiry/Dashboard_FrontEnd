@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import { Home, NoPage, Dashboard } from "./components";
+import { fontAwesome, app, dashboard } from './assets/styles';
+import { Users, UpdateUser, CreateUser } from './components/sections';
+import { SignUp, Login, RequireAuth } from './components/authintication'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className="App" role={'link'}>
+      {/* <Header /> moved to all components except Dashboard */}
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path='/register' element={<SignUp />} />
+        <Route path='/login' element={<Login />} />
+
+        {/* protected Routes */}
+        <Route element={<RequireAuth />}>
+          <Route path='/dashboard' element={<Dashboard />}>
+            <Route path='users' element={<Users />} />
+            <Route path='user/create' element={<CreateUser />} />
+            <Route path='users/:id' element={<UpdateUser />} />
+          </Route>
+        </Route>
+        <Route path="*" element={<NoPage />} />
+      </Routes>
+    </div >
   );
 }
 
