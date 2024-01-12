@@ -24,7 +24,7 @@ const Users = () => {
 
   async function deleteUser(id) {
     try {
-      const response = await axios.delete(`http://127.0.0.1:8000/api/user/delete/${id}`,{
+      const response = await axios.delete(`http://127.0.0.1:8000/api/user/delete/${id}`, {
         headers: {
           Authorization: 'Bearer ' + token
         }

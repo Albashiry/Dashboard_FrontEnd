@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Home, NoPage, Dashboard } from "./components";
 import { fontAwesome, app, dashboard } from './assets/styles';
 import { Users, UpdateUser, CreateUser } from './components/sections';
-import { SignUp, Login, RequireAuth } from './components/authintication'
+import { SignUp, Login, RequireAuth, PersistLogin } from './components/authintication'
 
 function App() {
   return (
@@ -14,11 +14,13 @@ function App() {
         <Route path='/login' element={<Login />} />
 
         {/* protected Routes */}
-        <Route element={<RequireAuth />}>
-          <Route path='/dashboard' element={<Dashboard />}>
-            <Route path='users' element={<Users />} />
-            <Route path='user/create' element={<CreateUser />} />
-            <Route path='users/:id' element={<UpdateUser />} />
+        <Route element={<PersistLogin/>}>
+          <Route element={<RequireAuth />}>
+            <Route path='/dashboard' element={<Dashboard />}>
+              <Route path='users' element={<Users />} />
+              <Route path='user/create' element={<CreateUser />} />
+              <Route path='users/:id' element={<UpdateUser />} />
+            </Route>
           </Route>
         </Route>
         <Route path="*" element={<NoPage />} />

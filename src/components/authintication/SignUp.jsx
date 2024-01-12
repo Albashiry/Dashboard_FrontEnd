@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Header ,PasswordToggle } from '../sections';
 import { User } from '../context';
 import axios from 'axios';
+import Cookies from 'universal-cookie';
 
 const SignUp = () => {
   const [name, setName] = useState('');
@@ -15,7 +16,10 @@ const SignUp = () => {
   const [errorStatus, setErrorStatus] = useState("");
 
   const nav = useNavigate();
+  // get user
   const userNow = useContext(User);
+  // Cookie
+  const cookie = new Cookies();
 
   async function validatePassword(event) {
     let pass = event.target.password.value; //get password by id
@@ -39,6 +43,7 @@ const SignUp = () => {
       });
       if (response.status === 200) {
         const token = response.data.data.token;
+        cookie.set("Bearer", token);
         const userDetails = response.data.data.user;
         userNow.setAuth({ token, userDetails });
         nav('/dashboard');

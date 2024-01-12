@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Header, PasswordToggle } from '../sections';
 import { User } from '../context';
 import axios from 'axios';
+import Cookies from 'universal-cookie';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -12,7 +13,10 @@ const Login = () => {
   const [errorStatus, setErrorStatus] = useState("");
 
   const nav = useNavigate();
+  // get user
   const userNow = useContext(User);
+  // Cookie
+  const cookie = new Cookies();
 
   // const passwordFieldRef = useRef(null); // Use useRef to reference the password field
   // const togglePasswordRef = useRef(null);
@@ -47,6 +51,7 @@ const Login = () => {
       });
       if (response.status === 200) {
         const token = response.data.data.token;
+        cookie.set("Bearer", token);
         const userDetails = response.data.data.user;
         userNow.setAuth({ token, userDetails });
         nav('/dashboard');
@@ -77,7 +82,7 @@ const Login = () => {
                 setErrorStatus("");
               }}
             />
-            {submited && errorStatus && <p className='error'>{errorStatus}</p>}
+            {submited && errorStatus && <p className='error'>Error {errorStatus}</p>}
           </span>
 
           <label htmlFor="password">Password: </label>
