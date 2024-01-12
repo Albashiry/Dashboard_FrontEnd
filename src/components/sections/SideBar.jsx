@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-const SideBar = () => {
+export default function SideBar  () {
 
     return (
         <div className="side-bar shadow">
@@ -10,7 +10,13 @@ const SideBar = () => {
             <NavLink to="/dashboard/user/create" className="link-item">
                 <i className="fa-solid fa-user-plus"></i> New User
             </NavLink>
+
+            <NavLink to="/dashboard/products" className="link-item">
+                <i className="fa-brands fa-product-hunt"></i> Products
+            </NavLink>
+            <NavLink to="/dashboard/product/create" className="link-item">
+                <i className="fa-solid fa-plus"></i> New Products
+            </NavLink>
         </div>
     );
 }
-export default SideBar;

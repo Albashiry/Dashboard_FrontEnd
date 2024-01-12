@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { TopBar, SideBar } from "./sections";
 
-const Dashboard = () => {
+export default function  Dashboard () {
     return (
         <div className="dashboard shadow">
             <TopBar />
@@ -14,4 +14,3 @@ const Dashboard = () => {
         </div>
     );
 }
-export default Dashboard;

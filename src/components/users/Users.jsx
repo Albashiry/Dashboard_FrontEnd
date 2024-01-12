@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { User } from "../context";
 
-const Users = () => {
+export default function Users() {
   const [users, setUsers] = useState([]);
   const [runEffect, setRunEffect] = useState(0);
 
@@ -65,4 +65,3 @@ const Users = () => {
     </div>
   );
 }
-export default Users;

@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 
-function PasswordToggle({ id, label, value, onChange }) {
+export default function PasswordToggle({ id, label, value, onChange }) {
   const passwordInputRef = useRef(null);
   const togglePasswordRef = useRef(null);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -29,4 +29,3 @@ function PasswordToggle({ id, label, value, onChange }) {
 
   );
 }
-export default PasswordToggle;

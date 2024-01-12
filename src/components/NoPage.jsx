@@ -1,6 +1,6 @@
 import { Header } from "./sections";
 
-const NoPage = () => {
+export default function NoPage() {
     return (
         <>
             <Header />
@@ -8,4 +8,3 @@ const NoPage = () => {
         </>
     );
 }
-export default NoPage;

@@ -1,10 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
 import { Home, NoPage, Dashboard } from "./components";
 import { fontAwesome, app, dashboard } from './assets/styles';
-import { Users, UpdateUser, CreateUser } from './components/sections';
+import { Users, UpdateUser, CreateUser } from './components/users';
 import { SignUp, Login, RequireAuth, PersistLogin } from './components/authintication'
+import { NewProduct, Products, UpdateProduct } from './components/products';
 
-function App() {
+export default function App() {
   return (
     <div className="App" role={'link'}>
       {/* <Header /> moved to all components except Dashboard */}
@@ -20,6 +21,10 @@ function App() {
               <Route path='users' element={<Users />} />
               <Route path='user/create' element={<CreateUser />} />
               <Route path='users/:id' element={<UpdateUser />} />
+
+              <Route path='products' element={<Products />} />
+              <Route path='product/create' element={<NewProduct />} />
+              <Route path='products/:id' element={<UpdateProduct />} />
             </Route>
           </Route>
         </Route>
@@ -28,5 +33,3 @@ function App() {
     </div >
   );
 }
-
-export default App;

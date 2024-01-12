@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Cookies from "universal-cookie";
 
 
-const Header = () => {
+export default function Header () {
   const cookie = new Cookies();
   const token = cookie.get("Bearer");
 
@@ -47,4 +47,3 @@ const Header = () => {
     </nav>
   );
 }
-export default Header;

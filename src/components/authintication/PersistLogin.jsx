@@ -5,7 +5,7 @@ import { User } from "../context";
 import { LoadingScreen } from "..";
 import Cookies from 'universal-cookie';
 
-const PersistLogin = () => {
+export default function PersistLogin () {
   // Get current user
   const context = useContext(User);
   const token = context.auth.token;
@@ -44,5 +44,3 @@ const PersistLogin = () => {
     loading ? <LoadingScreen /> : <Outlet />
   );
 }
-
-export default PersistLogin;

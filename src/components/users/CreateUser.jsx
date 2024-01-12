@@ -1,10 +1,10 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PasswordToggle } from '../sections';
 import axios from 'axios';
 import { User } from '../context';
 
-const UpdateUser = () => {
+export default function CreateUser () {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -18,7 +18,6 @@ const UpdateUser = () => {
   const context = useContext(User);
   const token = context.auth.token;
 
-  
   async function validatePassword(event) {
     let pass = event.target.password.value; //get password by id
     let regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!#$%&'()*+,-./:;<=>?@[\]^_`{|}~])(?=.{8,32}$)/; // Create a regex object directly
@@ -27,27 +26,13 @@ const UpdateUser = () => {
     (acceptPassword && passwordConfirmation === password) && setMatchPassword(test);
   }
 
-  const id = window.location.pathname.split('/').slice(-1)[0];  // get the user from the url
-  useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/user/showbyid/${id}`, {
-      headers: {
-        Authorization: "Bearer " + token
-      }
-    })
-      .then(response => response.json())
-      .then(data => {
-        setName(data[0].name);
-        setEmail(data[0].email);
-      })
-  }, []);
-
   async function handleSubmit(event) {
     event.preventDefault();
     await validatePassword(event);
     setSubmited(true);
 
     try {
-      let response = await axios.post(`http://127.0.0.1:8000/api/user/update/${id}`, {
+      let response = await axios.post("http://127.0.0.1:8000/api/user/create", {
         name: name,
         email: email,
         password: password,
@@ -60,7 +45,7 @@ const UpdateUser = () => {
           }
         });
       if (response.status === 200) {
-        nav('/dashboard/users');
+        nav('/dashboard/users/create');
       }
     } catch (error) {
       if (error.response.status === 422) {
@@ -117,7 +102,7 @@ const UpdateUser = () => {
 
           <span className="register">
             <button type="submit" value="register">
-              Update User
+              Create User
             </button>
           </span>
         </form>
@@ -125,5 +110,3 @@ const UpdateUser = () => {
     </>
   )
 }
-
-export default UpdateUser;

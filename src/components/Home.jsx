@@ -1,6 +1,6 @@
 import { Header } from "./sections";
 
-const Home = () => {
+export default function Home () {
     return (
         <>
             <Header />
@@ -10,4 +10,3 @@ const Home = () => {
         </>
     );
 }
-export default Home;

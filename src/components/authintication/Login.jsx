@@ -5,7 +5,7 @@ import { User } from '../context';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 
-const Login = () => {
+export default function Login () {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [submited, setSubmited] = useState(false);
@@ -109,5 +109,3 @@ const Login = () => {
     </>
   )
 }
-
-export default Login;

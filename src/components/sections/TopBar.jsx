@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const TopBar = () => {
+export default function TopBar () {
     return(
         <div className="top-bar d-flex">
             <h2>Store</h2>
@@ -10,4 +10,3 @@ const TopBar = () => {
         </div>
     );
 }
-export default TopBar;
