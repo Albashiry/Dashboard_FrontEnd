@@ -1,17 +1,27 @@
 # instructions before run the project
 1- install node.js => to test write cmd -> node -v
 
-2- install xampp => test use cmd -> php -v or add php to environment variables -> path  
-3- install composer and connect to xampp => test cmd -> composer -v  
-4- install laravel  
-5- run xampp MySQL => you can connect to vscode using Database Client extension  
-6- create a database with a name similar to the DB_DATABASEE in .env file called backend  
-7- in backend use these cmd  
-composer require laravel/sancum  
-php artisan migrate:fresh  
-8- run the backend use cmd -> php artisan serve  
-9- run frontend cmd => npm start  
-----------------------------------------------------------------------------------------  
+2- install xampp => test use cmd -> php -v or add php to environment variables -> path
+
+3- install composer and connect to xampp => test cmd -> composer -v
+
+4- install laravel
+
+5- run xampp MySQL => you can connect to vscode using Database Client extension
+
+6- create a database with a name similar to the DB_DATABASEE in .env file called backend
+
+7- in backend use these cmd
+
+composer require laravel/sancum
+
+php artisan migrate:fresh
+
+8- run the backend use cmd -> php artisan serve
+
+9- run frontend cmd => npm start
+
+----------------------------------------------------------------------------------------
 
 # Getting Started with Create React App
 
